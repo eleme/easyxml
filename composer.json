@@ -1,0 +1,26 @@
+{
+    "name": "eleme/easyxml",
+    "description": "PHP xml library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hongbo Tang",
+            "email": "thbourlove@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Eleme\\EasyXml\\": "src/",
+            "Eleme\\EasyXml\\Tests\\": "tests/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    }
+}
