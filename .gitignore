@@ -1,0 +1,5 @@
+vendor/
+tags
+cscope.out
+build/
+composer.lock
