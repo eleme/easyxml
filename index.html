@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Easyxml : php xml lib">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Easyxml</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/thbourlove/easyxml">View on GitHub</a>
+
+          <h1 id="project_title">Easyxml</h1>
+          <h2 id="project_tagline">php xml lib</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/thbourlove/easyxml/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/thbourlove/easyxml/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="easyxml" class="anchor" href="#easyxml"><span class="octicon octicon-link"></span></a>Easyxml</h1>
+
+<p><a href="https://travis-ci.org/thbourlove/easyxml"><img src="https://travis-ci.org/thbourlove/easyxml.png?branch=master" alt="Build Status"></a>
+<a href="https://scrutinizer-ci.com/g/thbourlove/easyxml/"><img src="https://scrutinizer-ci.com/g/thbourlove/easyxml/badges/quality-score.png?s=f113f1ab965f6aaef55e497a330caf72bff94201" alt="Scrutinizer Code Quality"></a>
+<a href="https://scrutinizer-ci.com/g/thbourlove/easyxml/?branch=master"><img src="https://scrutinizer-ci.com/g/thbourlove/easyxml/badges/coverage.png?b=master" alt="Code Coverage"></a>
+<a href="https://packagist.org/packages/eleme/easyxml"><img src="https://poser.pugx.org/eleme/easyxml/v/stable.png" alt="Stable Status"></a></p>
+
+<p>php xml lib.</p>
+
+<h2>
+<a name="install-with-composer" class="anchor" href="#install-with-composer"><span class="octicon octicon-link"></span></a>Install With Composer:</h2>
+
+<div class="highlight highlight-json"><pre><span class="s2">"require"</span><span class="err">:</span> <span class="p">{</span>
+    <span class="nt">"eleme/easyxml"</span><span class="p">:</span> <span class="s2">"~0.1"</span>
+<span class="p">}</span>
+</pre></div>
+
+<h2>
+<a name="example" class="anchor" href="#example"><span class="octicon octicon-link"></span></a>Example</h2>
+
+<h4>
+<a name="array_2_xmlarray-array-structure--" class="anchor" href="#array_2_xmlarray-array-structure--"><span class="octicon octicon-link"></span></a>array_2_xml(array $array, $structure = '')</h4>
+
+<div class="highlight highlight-php"><pre><span class="nv">$array</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">'abc'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">'cba'</span> <span class="o">=&gt;</span> <span class="s1">'abc'</span><span class="p">,</span> <span class="s1">'abc'</span> <span class="o">=&gt;</span> <span class="s1">''</span><span class="p">));</span>
+<span class="k">echo</span> <span class="nx">array_2_xml</span><span class="p">(</span><span class="nv">$array</span><span class="p">),</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+<span class="nv">$structure</span> <span class="o">=</span> <span class="s1">'&lt;?xml version="1.0" encoding="utf-8"?&gt;'</span><span class="p">;</span>
+<span class="k">echo</span> <span class="nx">array_2_xml</span><span class="p">(</span><span class="nv">$array</span><span class="p">,</span> <span class="nv">$structure</span><span class="p">),</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+</pre></div>
+
+<h4>
+<a name="json_2_xmljson-structure--" class="anchor" href="#json_2_xmljson-structure--"><span class="octicon octicon-link"></span></a>json_2_xml($json, $structure = '')</h4>
+
+<div class="highlight highlight-php"><pre><span class="nv">$json</span> <span class="o">=</span> <span class="s1">'{"abc":{"cba":"abc","abc":""}}'</span><span class="p">;</span>
+<span class="k">echo</span> <span class="nx">json_2_xml</span><span class="p">(</span><span class="nv">$json</span><span class="p">),</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+<span class="nv">$structure</span> <span class="o">=</span> <span class="s1">'&lt;?xml version="1.0" encoding="utf-8"?&gt;'</span><span class="p">;</span>
+<span class="k">echo</span> <span class="nx">json_2_xml</span><span class="p">(</span><span class="nv">$json</span><span class="p">,</span> <span class="nv">$structure</span><span class="p">),</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+</pre></div>
+
+<h4>
+<a name="xml_2_arrayxml" class="anchor" href="#xml_2_arrayxml"><span class="octicon octicon-link"></span></a>xml_2_array($xml)</h4>
+
+<div class="highlight highlight-php"><pre><span class="nv">$xml</span> <span class="o">=</span> <span class="s1">'&lt;?xml version="1.0"?&gt;&lt;abc&gt;&lt;cba&gt;abc&lt;/cba&gt;&lt;abc/&gt;&lt;/abc&gt;'</span><span class="p">;</span>
+<span class="k">echo</span> <span class="nb">var_export</span><span class="p">(</span><span class="nx">xml_2_array</span><span class="p">(</span><span class="nv">$xml</span><span class="p">)),</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+</pre></div>
+
+<h4>
+<a name="xml_2_jsonxml" class="anchor" href="#xml_2_jsonxml"><span class="octicon octicon-link"></span></a>xml_2_json($xml)</h4>
+
+<div class="highlight highlight-php"><pre><span class="nv">$xml</span> <span class="o">=</span> <span class="s1">'&lt;?xml version="1.0"?&gt;&lt;abc&gt;&lt;cba&gt;abc&lt;/cba&gt;&lt;abc/&gt;&lt;/abc&gt;'</span><span class="p">;</span>
+<span class="k">echo</span> <span class="nx">xml_2_json</span><span class="p">(</span><span class="nv">$xml</span><span class="p">),</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">;</span>
+</pre></div>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Easyxml maintained by <a href="https://github.com/thbourlove">thbourlove</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
