@@ -65,6 +65,9 @@ class XmlTest extends PHPUnit_Framework_TestCase
             ),
             array(array('abc' => array('cba' => 'abc', 'abc' => '')),
                 '<?xml version="1.0"?>'."\n".'<abc><cba>abc</cba><abc/></abc>'."\n"
+            ),
+            array(array('abc' => array('cba' => 'abc', 'ss' => array('s' => array('n', 'n')))),
+                '<?xml version="1.0"?>'."\n".'<abc><cba>abc</cba><ss><s>n</s><s>n</s></ss></abc>'."\n"
             )
         );
     }

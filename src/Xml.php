@@ -66,6 +66,8 @@ function xml_object_2_array($object)
             } else {
                 $array[$key] = "";
             }
+        } elseif (is_array($value)) {
+            $array[$key] = xml_object_2_array($value);
         } else {
             $array[$key] = $value;
         }
@@ -73,20 +75,43 @@ function xml_object_2_array($object)
     return $array;
 }
 
-function array_2_xml(array $array)
+function is_index_array(array $array)
 {
-    $xml = '';
+    $id = 0;
     foreach ($array as $key => $value) {
-        if (is_array($value)) {
-            $string = array_2_xml($value);
-        } else {
-            $string = (string) $value;
+        if ($key !== $id) {
+            return false;
         }
-        if ($string === '') {
-            $xml .= "<{$key}/>";
-        } else {
-            $xml .= "<{$key}>$string</{$key}>";
+        $id++;
+    }
+    return true;
+}
+
+function array_2_xml(array $array, $tag = '')
+{
+    $string = '';
+    if (is_index_array($array)) {
+        foreach ($array as $value) {
+            $string .= value_2_xml($value, $tag);
+        }
+    } else {
+        foreach ($array as $key => $value) {
+            $string .= value_2_xml($value, $key);
+        }
+        if ($tag) {
+            $string = "<{$tag}>{$string}</{$tag}>";
         }
     }
-    return $xml;
+    return $string;
+}
+
+function value_2_xml($value, $tag)
+{
+    if (is_array($value)) {
+        return array_2_xml($value, $tag);
+    } elseif ($value === '') {
+        return "<{$tag}/>";
+    } else {
+        return "<{$tag}>{$value}</{$tag}>";
+    }
 }
