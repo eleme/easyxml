@@ -44,7 +44,6 @@ class XmlTest extends PHPUnit_Framework_TestCase
     {
         $xml = Xml::fromXml($string);
         $this->assertEquals($json, $xml->toJson());
-        $this->assertEquals($json, json_encode($xml));
         $this->assertEquals($json, xml_2_json($string));
     }
 

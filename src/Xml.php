@@ -2,9 +2,8 @@
 namespace Eleme\EasyXml;
 
 use SimpleXmlElement;
-use JsonSerializable;
 
-class Xml implements JsonSerializable
+class Xml
 {
     private $xml = null;
 
@@ -48,11 +47,6 @@ class Xml implements JsonSerializable
     public function __toString()
     {
         return $this->toXml();
-    }
-
-    public function jsonSerialize()
-    {
-        return $this->toArray();
     }
 }
 
