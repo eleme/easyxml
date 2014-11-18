@@ -15,10 +15,6 @@
         "phpunit/phpunit": "~4.0"
     },
     "autoload": {
-        "psr-4": {
-            "Eleme\\EasyXml\\": "src/",
-            "Eleme\\EasyXml\\Tests\\": "tests/"
-        },
         "files": [
             "src/helpers.php"
         ]

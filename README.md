@@ -10,7 +10,7 @@ php xml lib.
 
 ```json
 "require": {
-    "eleme/easyxml": "~0.2"
+    "eleme/easyxml": "~0.3"
 }
 ```
 
